@@ -1,0 +1,11 @@
+function [results rank]=edas(C,W)
+AV=mean(C);
+PDA=max(0,C-repmat(AV,[size(C,1) 1]))./repmat(AV,[size(C,1) 1]);
+NDA=max(0,repmat(AV,[size(C,1) 1])-C)./repmat(AV,[size(C,1) 1]);
+SP=sum(repmat(W,[size(C,1) 1]).*PDA,2);
+SN=sum(repmat(W,[size(C,1) 1]).*NDA,2);
+NSP=SP./max(SP);
+NSN=1-(SN./max(SN));
+AS=0.5*(NSP+NSP);
+rank=rankWithDuplicates(AS)';
+results=[SP SN NSP NSN AS rank];

@@ -1,0 +1,10 @@
+function [ML MU PM VL VU PV IL IU PI]=trans(C)
+ML=[C(1) C(4)];
+MU=[C(2) C(5)];
+PM=[C(3) C(6)];
+VL=[C(7) C(10)];
+VU=[C(8) C(11)];
+PV=[C(9) C(12)];
+IL=[C(13) C(16)];
+IU=[C(14) C(17)];
+PI=[C(15) C(18)];
